@@ -9,7 +9,7 @@ func (blockchain *Blockchain) IsValid() bool {
 		prevBlock := blockchain.Chain[blockIndex]
 		currentBlock := blockchain.Chain[blockIndex+1]
 
-		if currentBlock.Hash != currentBlock.CalculateHash() || currentBlock.Hash == prevBlock.Hash {
+		if blockchain.CheckLink(prevBlock, currentBlock) {
 			return false
 		}
 	}
