@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/diegodisant/blockchain/chain"
+)
 
 func main() {
-	fmt.Println("Will build a blockchain")
+	var blockchain = chain.BuildBlockchain(2)
+
+	blockchain.Append("Juni", "Yiyi", 5000.32)
+	blockchain.Append("Pillu", "Sata", 35000.28)
+
+	fmt.Println(blockchain.IsValid())
 }
