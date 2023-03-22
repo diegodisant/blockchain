@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   go:
+    image: diegodisant/blockchain-go-cli:${IMAGE_TAG:-latest}
     build:
       context: .
       target: builder
