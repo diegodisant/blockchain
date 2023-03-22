@@ -12,5 +12,7 @@ func main() {
 	blockchain.Append("Juni", "Yiyi", 5000.32)
 	blockchain.Append("Pillu", "Sata", 35000.28)
 
-	fmt.Println(blockchain.IsValid())
+	blockchain.Print()
+
+	fmt.Printf("Is this blockchain valid? %v\n", blockchain.IsValid())
 }
