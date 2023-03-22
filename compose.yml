@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app:
+    image: diegodisant/blockchain:${IMAGE_TAG:-latest}
+    container_name: blockchain_app
+    build:
+      context: .
+      target: ${APP_ENV:-development}
