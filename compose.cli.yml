@@ -6,8 +6,19 @@ services:
     build:
       context: .
       target: builder
-    container_name: go_cli
+    container_name: blockchain_go_cli
     network_mode: host
     volumes:
       - .:/app
     entrypoint: go
+
+  unit-test:
+    image: diegodisant/blockchain-unit-test:${IMAGE_TAG:-latest}
+    build:
+      context: .
+      target: builder
+    container_name: blockchain_unit_test
+    network_mode: host
+    volumes:
+      - .:/app
+    entrypoint: go test -v ./test/unit/...
