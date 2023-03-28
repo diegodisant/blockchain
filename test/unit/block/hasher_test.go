@@ -17,14 +17,14 @@ func TestCalculateHash(t *testing.T) {
 		currentBlock, canCastBlock := providerData.(*block.Block)
 
 		if !canCastBlock {
-			t.Error("Cannot current block")
+			t.Error("Cannot cast the current block")
 		}
 
 		currentBlock.Hash = currentBlock.CalculateHash()
 		var currentHash = currentBlock.CalculateHash()
 
-		t.Logf("Block hash: %x", currentBlock.Hash)
-		t.Logf("Generated hash: %x", currentHash)
+		t.Logf("Block hash: %s", currentBlock.Hash)
+		t.Logf("Generated hash: %s", currentHash)
 
 		if currentBlock.Hash != currentHash {
 			t.Errorf(
