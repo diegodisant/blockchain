@@ -2,8 +2,8 @@ package block
 
 import (
 	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
-	"fmt"
 	"strconv"
 
 	"github.com/diegodisant/blockchain/common"
@@ -24,5 +24,5 @@ func (block *Block) CalculateHash() string {
 	blockHashSalt := block.PrevHash + string(encodedData) + block.Timestamp.String() + strconv.Itoa(block.Pow)
 	blockHash := sha256.Sum256([]byte(blockHashSalt))
 
-	return fmt.Sprintf("%x", blockHash)
+	return hex.EncodeToString(blockHash[:])
 }
