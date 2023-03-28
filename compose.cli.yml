@@ -22,3 +22,14 @@ services:
     volumes:
       - .:/app
     entrypoint: go test -v ./test/unit/...
+
+  bench-test:
+    image: diegodisant/blockchain-bench-test:${IMAGE_TAG:-latest}
+    build:
+      context: .
+      target: builder
+    container_name: blockchain_bench_test
+    network_mode: host
+    volumes:
+      - .:/app
+    entrypoint: go test -v -count 1 -bench=. ./test/bench/...
